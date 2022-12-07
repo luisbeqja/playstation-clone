@@ -1,0 +1,22 @@
+.ps-button {
+  transition: all 0.1s ease-in-out;
+  padding: 2px;
+  &:hover {
+    box-shadow: 0 0 0 2px theme('colors.ps-blue');
+    padding: 2px;
+    outline: none;
+  }
+  button {
+    background: theme('colors.ps-blue');
+    color: theme('colors.white');
+  }
+  &.ps-button__white {
+    button {
+      background: theme('colors.white');
+      color: black;
+    }
+    &:hover {
+      box-shadow: 0 0 0 2px theme('colors.white');
+    }
+  }
+}

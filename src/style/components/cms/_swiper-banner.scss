@@ -1,0 +1,20 @@
+@import 'swiper/css';
+@import 'swiper/css/effect-fade';
+
+.ps-swiper-banner {
+  &--paginator {
+    opacity: 0.5;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    &:hover {
+      transform: translateY(-0.5rem);
+      opacity: 1;
+      box-shadow: 0px 18px 9px 0px rgba(0, 0, 0, 0.21);
+    }
+    &.active {
+      box-shadow: 0 0 0 3px theme('colors.ps-blue');
+      padding: 3px;
+      opacity: 1;
+    }
+  }
+}

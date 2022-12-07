@@ -1,0 +1,26 @@
+.ps-text-banner {
+  height: 675px;
+
+  &__white {
+    color: white;
+  }
+  &__dark {
+    color: black;
+  }
+  &__left-bottom {
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  &__left-top {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  &__right-bottom {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  &__right-top {
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+}
