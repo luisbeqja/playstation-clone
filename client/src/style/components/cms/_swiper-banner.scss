@@ -17,4 +17,24 @@
       opacity: 1;
     }
   }
+
+  @keyframes example {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .swiper-slide-active {
+    .ps-text-banner--text {
+      img {
+        animation: example 2s;
+      }
+      animation: example 3s;
+    }
+  }
 }

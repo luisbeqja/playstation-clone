@@ -16,7 +16,7 @@ export const TextBannerBg = (props: any) => {
       style={sectionStyle}
     >
       <div className="ps-text-banner--text max-w-md">
-        <img src={props.logo} alt="" className="w-72 md:w-auto" />
+        <img src={props.logo} alt={props.title} className="w-72 md:w-auto" />
         <h2 className="text-4xl mt-6">{props.title}</h2>
         <p className="text-base mt-4 mb-8">{props.text}</p>
         <Button themeWhite={props.textTheme} name={props.button} />
