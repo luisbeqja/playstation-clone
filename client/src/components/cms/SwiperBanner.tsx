@@ -24,9 +24,9 @@ export const SwiperBanner = (props: any) => {
           setCurrentSlide(swiper.activeIndex);
         }}
       >
-        {props.dataBanner?.map((e: any) => {
+        {props.dataBanner?.map((e: any, index: number) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <TextBannerBg
                 textPosition={e.textPosition}
                 title={e.title}
@@ -45,6 +45,7 @@ export const SwiperBanner = (props: any) => {
         {props.dataBanner?.map((e: any, index: number) => {
           return (
             <div
+              key={index}
               className={`ps-swiper-banner--paginator rounded-2xl cursor-pointer w-fit h-fit ${
                 index === swiper?.activeIndex ? 'active' : ''
               }`}

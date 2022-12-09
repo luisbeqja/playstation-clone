@@ -12,8 +12,8 @@ export const Header = (props:any) => {
         <div className="h-full flex justify-start items-center w-1/2">
           <img src={PsLogo} alt="playstation logo" className=" w-10 mr-4" />
           <ul className="flex gap-4 text-xs">
-            {props.pageMenu.map((e: string) => {
-              return <li>{e}</li>;
+            {props.pageMenu.map((e: string, index:number) => {
+              return <li key={index}>{e}</li>;
             })}
           </ul>
         </div>
