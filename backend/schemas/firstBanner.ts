@@ -38,5 +38,10 @@ export default {
             type: 'image',
             title: 'Image Logo'
         },
+        {
+            name: 'urlImgPaginator',
+            type: 'image',
+            title: 'Image Paginator'
+        }
     ]
 }

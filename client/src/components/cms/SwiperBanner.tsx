@@ -41,11 +41,11 @@ export const SwiperBanner = (props: any) => {
           );
         })}
       </Swiper>
-      <div className="flex gap-8 mt-9 px-24 justify-center">
+      <div className="md:flex gap-8 mt-9 md:px-24 px-0 justify-center hidden">
         {props.dataBanner?.map((e: any, index: number) => {
           return (
             <div
-              className={`ps-swiper-banner--paginator w-96 rounded-2xl cursor-pointer ${
+              className={`ps-swiper-banner--paginator rounded-2xl cursor-pointer w-fit h-fit ${
                 index === swiper?.activeIndex ? 'active' : ''
               }`}
               onClick={() => {
@@ -54,8 +54,8 @@ export const SwiperBanner = (props: any) => {
               }}
             >
               <img
-                className=" rounded-2xl"
-                src={urlFor(e.urlImg.asset).url()}
+                className="rounded-2xl w-52 h-28"
+                src={urlFor(e.urlImgPaginator.asset).url()}
                 alt=""
               />
               {e.titlePaginator && (
