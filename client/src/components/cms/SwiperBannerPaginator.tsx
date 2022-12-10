@@ -1,25 +1,24 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Autoplay } from 'swiper';
-import { TextBannerBg } from './TextBannerBg';
+import { TextBannerImage } from './TextBannerImage';
 import { EffectFade } from 'swiper';
 import { useState } from 'react';
 import { urlFor } from '../../utils/sanity';
 
-export const SwiperBanner = (props: any) => {
+export const SwiperBannerPaginator = (props: any) => {
   const [swiper, setSwiper] = useState<any>();
   const [currentSlide, setCurrentSlide] = useState<any>();
+  
   return (
     <div className="ps-swiper-banner">
       <Swiper
         onSwiper={(swiper) => setSwiper(swiper)}
-        modules={[EffectFade, Autoplay]}
+        modules={[EffectFade, Autoplay, Pagination]}
         effect="fade"
         spaceBetween={0}
         slidesPerView={1}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
+        pagination={{ clickable: true }}
         onSlideChange={() => {
           setCurrentSlide(swiper.activeIndex);
         }}
@@ -27,15 +26,11 @@ export const SwiperBanner = (props: any) => {
         {props.dataBanner?.map((e: any, index: number) => {
           return (
             <SwiperSlide key={index}>
-              <TextBannerBg
-                textPosition={e.textPosition}
+              <TextBannerImage
                 title={e.title}
                 text={e.text}
                 button={e.button}
-                textTheme={e.textTheme}
-                background={urlFor(e.urlImg.asset).url()}
-                logo={urlFor(e.urlImgLogo?.asset).url()}
-                bannerTipe={e.bannerTipe}
+                image={urlFor(e.urlImg.asset).url()}
               />
             </SwiperSlide>
           );
@@ -46,7 +41,7 @@ export const SwiperBanner = (props: any) => {
           return (
             <div
               key={index}
-              className={`ps-swiper-banner--paginator rounded-2xl cursor-pointer w-fit h-fit ${
+              className={`ps-swiper-banner--paginator-text hover:opacity-100 rounded-2xl cursor-pointer w-fit h-fit text-center ${
                 index === swiper?.activeIndex ? 'active' : ''
               }`}
               onClick={() => {
@@ -54,11 +49,15 @@ export const SwiperBanner = (props: any) => {
                 setCurrentSlide(index);
               }}
             >
-              <img
-                className="rounded-2xl w-52 h-28"
-                src={urlFor(e.urlImgPaginator.asset).url()}
-                alt=""
-              />
+              <div className=" m-3 w-60 flex justify-center">
+                <img
+                  className="rounded-2xl h-28"
+                  src={urlFor(e.urlImg.asset).url()}
+                  alt=""
+                />
+              </div>
+              <p className="mb-3">{e.title}</p>
+
               {e.titlePaginator && (
                 <p className="text-center m-4">{e.titlePaginator}</p>
               )}
