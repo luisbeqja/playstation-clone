@@ -4,14 +4,13 @@ import { SwiperBanner } from '../components/cms/SwiperBanner';
 import { SwiperBannerPaginator } from '../components/cms/SwiperBannerPaginator';
 import useFetchSanity from '../hooks/useFetchSanity';
 import { PsPlussBanner } from '../components/cms/PsPlussBanner';
-
-import BgPsPluss from '../assets/ps-plus-bg.webp';
-import BgPsPlussLogo from '../assets/ps-plus-logo.webp';
-import PsPlussGame from '../assets/ps-pluss-games.jpg';
+import { Footer } from '../components/Footer';
+import { SocialBanner } from '../components/SocialBanner';
 
 export const Index = () => {
   const [firstBannerData] = useFetchSanity(`*[_type == "firstBanner"]`);
   const [secondBannerData] = useFetchSanity(`*[_type == "secondBanner"]`);
+  const [thirdBannerData] = useFetchSanity(`*[_type == "thirdBanner"]`);
 
   return (
     <div>
@@ -22,13 +21,9 @@ export const Index = () => {
       <br></br>
       <br></br>
       <br></br>
-      <PsPlussBanner
-        background={BgPsPluss}
-        logo={BgPsPlussLogo}
-        text="Migliora la tua esperienza PlayStation con l'accesso a multigiocatore online, giochi mensili, sconti esclusivi e altro ancora."
-        button="Espolora PlayStation Pluss"
-        image={PsPlussGame}
-      />
+      <PsPlussBanner dataBanner={thirdBannerData} />
+      <SocialBanner />
+      <Footer />
     </div>
   );
 };
