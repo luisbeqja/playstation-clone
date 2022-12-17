@@ -1,5 +1,5 @@
 
-export const pageMenu = ['Giochi', 'Hardware', 'Servizi']
+export const pageMenu:string[] = ['Giochi', 'Hardware', 'Servizi']
 // 
 export const secondBannerText = [
     {

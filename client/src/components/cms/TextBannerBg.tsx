@@ -3,7 +3,6 @@ import Button from '../Button';
 export const TextBannerBg = (props: any) => {
   const textClassName = `ps-text-banner__${props.textPosition} ps-text-banner__${props.textTheme}`;
 
-
   const sectionStyle = {
     backgroundImage: `url('${props.background}')`,
     backgroundPosition: 'center',
@@ -16,7 +15,11 @@ export const TextBannerBg = (props: any) => {
       style={sectionStyle}
     >
       <div className="ps-text-banner--text max-w-md sm:text-left text-center">
-        <img src={props.logo} alt={props.title} className="w-72 md:w-auto mx-auto" />
+        <img
+          src={props.logo}
+          alt={props.title}
+          className="w-72 md:w-auto mx-auto"
+        />
         <h2 className="text-4xl mt-6">{props.title}</h2>
         <p className="text-base mt-4 mb-8">{props.text}</p>
         <Button themeWhite={props.textTheme} name={props.button} />

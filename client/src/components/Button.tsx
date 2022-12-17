@@ -1,5 +1,11 @@
-export default function Button(props: any) {
-  const themeClass = props.themeWhite === 'white' ? 'ps-button__white' : '';
+
+interface ButtonType {
+  themeWhite?: String;
+  name: String;
+}
+
+export default function Button(props: ButtonType) {
+  const themeClass:String = props.themeWhite === 'white' ? 'ps-button__white' : '';
   return (
     <a
       href=""

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { client } from '../utils/sanity';
 
-const useFetchSanity = (payLoad:string) => {
-    const [data, setData] = useState(null);
+const useFetchSanity = (payLoad: string) => {
+
+    const [data, setData] = useState();
 
     useEffect(() => {
         client

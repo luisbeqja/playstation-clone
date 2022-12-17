@@ -1,15 +1,21 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Pagination } from 'swiper';
 import { Autoplay } from 'swiper';
 import { TextBannerImage } from './TextBannerImage';
 import { EffectFade } from 'swiper';
 import { useState } from 'react';
 import { urlFor } from '../../utils/sanity';
+import { Swiper as SwiperType } from 'swiper/types';
+import { secondBannerData } from '../../typing';
 
-export const SwiperBannerPaginator = (props: any) => {
-  const [swiper, setSwiper] = useState<any>();
-  const [currentSlide, setCurrentSlide] = useState<any>();
-  
+interface Props {
+  dataBanner: [secondBannerData];
+}
+
+export const SwiperBannerPaginator = ({ dataBanner }: Props) => {
+  const [swiper, setSwiper] = useState<SwiperType>();
+  const [currentSlide, setCurrentSlide] = useState<Number>();
+
   return (
     <div className="ps-swiper-banner">
       <Swiper
@@ -20,10 +26,10 @@ export const SwiperBannerPaginator = (props: any) => {
         slidesPerView={1}
         pagination={{ clickable: true }}
         onSlideChange={() => {
-          setCurrentSlide(swiper.activeIndex);
+          setCurrentSlide(swiper?.activeIndex);
         }}
       >
-        {props.dataBanner?.map((e: any, index: number) => {
+        {dataBanner?.map((e: secondBannerData, index: number) => {
           return (
             <SwiperSlide key={index}>
               <TextBannerImage
@@ -37,7 +43,7 @@ export const SwiperBannerPaginator = (props: any) => {
         })}
       </Swiper>
       <div className="md:flex gap-8 mt-9 md:px-24 px-0 justify-center hidden">
-        {props.dataBanner?.map((e: any, index: number) => {
+        {dataBanner?.map((e: secondBannerData, index: number) => {
           return (
             <div
               key={index}
@@ -45,7 +51,7 @@ export const SwiperBannerPaginator = (props: any) => {
                 index === swiper?.activeIndex ? 'active' : ''
               }`}
               onClick={() => {
-                swiper.slideTo(index);
+                swiper?.slideTo(index);
                 setCurrentSlide(index);
               }}
             >
@@ -56,11 +62,7 @@ export const SwiperBannerPaginator = (props: any) => {
                   alt=""
                 />
               </div>
-              <p className="mb-3">{e.title}</p>
-
-              {e.titlePaginator && (
-                <p className="text-center m-4">{e.titlePaginator}</p>
-              )}
+              {e.title && <p className="text-center m-4">{e.title}</p>}
             </div>
           );
         })}

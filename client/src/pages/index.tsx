@@ -15,13 +15,13 @@ export const Index = () => {
   return (
     <div>
       <Header pageMenu={pageMenu} />
-      <SwiperBanner dataBanner={firstBannerData} />
+      {firstBannerData && <SwiperBanner dataBanner={firstBannerData} />}
       <br></br>
-      <SwiperBannerPaginator dataBanner={secondBannerData} />
+      {secondBannerData && <SwiperBannerPaginator dataBanner={secondBannerData} />}
       <br></br>
       <br></br>
       <br></br>
-      <PsPlussBanner dataBanner={thirdBannerData} />
+      {thirdBannerData && <PsPlussBanner dataBanner={thirdBannerData} />}
       <SocialBanner />
       <Footer />
     </div>
